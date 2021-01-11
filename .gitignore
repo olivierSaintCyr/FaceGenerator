@@ -1,0 +1,9 @@
+*.png
+*.jpg
+*.tfrec
+*.zip
+*.data*
+*.index
+*checkpoint
+*.gif
+*.pyc
