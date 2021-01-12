@@ -12,10 +12,6 @@ config.gpu_options.allow_growth = True #
 tf.compat.v1.Session(config=config)    #
 ########################################
 
-noise_dim = 128
-num_examples_to_generate = 16
-seed = tf.random.normal([num_examples_to_generate, noise_dim])
-
 class GanModel(object):
     def __init__(self, img_size, n_discriminators, latent_dim, reload_model=False):
         self.img_size = img_size    # (width, lenght, RGB)

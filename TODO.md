@@ -1,0 +1,3 @@
+- FID metric
+- Transfere  learning rate to train the same seed in different img sizes 
+- Train multiple models scaling them up with time
