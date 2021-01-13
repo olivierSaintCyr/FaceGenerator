@@ -5,17 +5,17 @@ import imageio
 import tensorflow_docs.vis.embed as embed
 import PIL
 
-def reload_training_info(latent_dim:int=128 , reload_info=True):
+def reload_training_info(n_image_to_generate:int=16, latent_dim:int=128, reload_info=True):
   if reload_info:
     with open('train_info.pickle', 'rb') as f:
       return pickle.load(f)
-  return TrainingInfo(latent_dim)
+  return TrainingInfo(n_image_to_generate, latent_dim)
 
 
 class TrainingInfo:
-  def __init__(self, latent_dim : int):
+  def __init__(self, n_image_to_generate : int, latent_dim : int):
     self.start_epoch = 0
-    self.seed = tf.random.normal([num_examples_to_generate, latent_dim])
+    self.seed = tf.random.normal([n_image_to_generate, latent_dim])
 
   def save(self):
     with open('train_info.pickle', 'wb') as f:
