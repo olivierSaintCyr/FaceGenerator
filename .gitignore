@@ -7,3 +7,5 @@
 *checkpoint
 *.gif
 *.pyc
+*.jpeg
+*.pickle
