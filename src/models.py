@@ -109,14 +109,6 @@ class GanModel(object):
             
             print ('Time for epoch {} is {} sec'.format(epoch + start_epoch + 1, 
                                                         time.time()-start_time))
-<<<<<<< HEAD
-=======
-        
-        # # Generate after the final epoch
-        # display.clear_output(wait=True)
-        # generate_and_save_images(epochs,
-        #                         self.train_info.seed)
->>>>>>> 828f0a2440bf6910f86ebb6f469ad3e72d960e66
 
     def generate_and_save_images(self, epoch):
         predictions = self.generator(self.train_info.seed, training=False)
@@ -133,7 +125,6 @@ class GanModel(object):
         plt.savefig('image_at_epoch_{:04d}.png'.format(epoch))
         plt.close()
 
-<<<<<<< HEAD
     def generate_image(self, latent_vector):
         return self.generator(latent_vector, training=False)
 
@@ -143,11 +134,3 @@ class GanModel(object):
 
     def save_generator(self, path_to_location, name):
         self.generator.save(path_to_location + name)
-=======
-    def save_discriminators(self, path_to_location, name):
-        for i in range(len(self.discriminators)):
-            self.discriminators(path_to_location + name + str(i))
-
-    def save_generator(self, path_to_location, name):
-        self.generator(path_to_location + name)
->>>>>>> 828f0a2440bf6910f86ebb6f469ad3e72d960e66
