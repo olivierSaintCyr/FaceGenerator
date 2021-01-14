@@ -7,7 +7,7 @@ import os
 
 from IPython import display
 
-from models_utility import make_generator, make_n_discriminator, make_n_optimizers
+from models_utility import make_generator_model, make_n_discriminator, make_n_optimizers
 from models_utility import print_losses, average_loss, generator_loss, discriminator_loss, GradientTapes
 from utility import reload_training_info
 
@@ -25,8 +25,8 @@ class GanModel(object):
         
         self.checkpoint_prefix = os.path.join(checkpoint_path, "ckpt")
 
-        self.generator = make_generator(latent_dim)
-        self.discriminators = make_n_discriminator(img_size, n_discriminators)
+        self.generator = self.make_generator(latent_dim)
+        self.discriminators = self.make_discriminators(img_size, n_discriminators)
 
         self.generator_optimizer = tf.keras.optimizers.Adam(2e-4)
         self.discriminator_optimizers = make_n_optimizers(len(self.discriminators))
@@ -45,6 +45,14 @@ class GanModel(object):
         if reload_training and self.checkpoint_manager.latest_checkpoint:
             print("Model restored at epoch : ", self.train_info.start_epoch)
             self.checkpoint.restore(self.checkpoint_manager.latest_checkpoint).expect_partial()
+    
+    @staticmethod
+    def make_generator(latent_dim):
+        return make_generator_model(latent_dim)
+    
+    @staticmethod
+    def make_discriminators(image_size, n):
+        return make_n_discriminator(image_size, n)
     
     @tf.function
     def train_step(self, images):

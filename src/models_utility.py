@@ -6,9 +6,9 @@ def make_n_optimizers(n:int):
   return [tf.keras.optimizers.Adam(2e-4) for i in range(n)]
 
 def make_n_discriminator(image_size : int, n:int):
-  return [make_discriminator(image_size) for i in range(n)]
+  return [make_discriminator_model(image_size) for i in range(n)]
   
-def make_generator(latent_dim):
+def make_generator_model(latent_dim):
   inputs = tf.keras.layers.Input(shape=[latent_dim,])
 
   x = inputs
@@ -52,7 +52,7 @@ def make_generator(latent_dim):
   x = last(x)
   return tf.keras.Model(inputs=inputs, outputs=x, name='generator')
 
-def make_discriminator(image_size):
+def make_discriminator_model(image_size):
   initializer = tf.random_normal_initializer(0.,0.02)
   gen = tf.keras.layers.Input(shape=image_size, name='discriminator')
 
