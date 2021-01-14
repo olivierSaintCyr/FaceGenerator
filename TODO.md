@@ -6,7 +6,8 @@ _____IDEAS__________
 - Train multiple models scaling them up with 
 - Maybe ResNet generator
 - Prioritise the most efficient discriminator in training : need to dev math
-- Return to initial gen model 64 filters last convolution layer
+- Return to initial gen model 64 filters last convolution layer ***
+- Return to the fake (image) discriminator output model with dropout
 _____QUESTIONS _____
 # loss closer to 0 mean ???
 - Understand doubles faces 

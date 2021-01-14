@@ -103,13 +103,13 @@ class GanModel(object):
             #Save the model every 5 epochs
             if (epoch + 1) % 5 == 0:
                 print('Saving model..')
-            self.checkpoint.save(file_prefix = self.checkpoint_prefix)
-            self.train_info.start_epoch = start_epoch + epoch + 1
-            self.train_info.save()
+                self.checkpoint.save(file_prefix = self.checkpoint_prefix)
+                self.train_info.start_epoch = start_epoch + epoch + 1
+                self.train_info.save()
             
             print ('Time for epoch {} is {} sec'.format(epoch + start_epoch + 1, 
                                                         time.time()-start_time))
-
+    
     def generate_and_save_images(self, epoch):
         predictions = self.generator(self.train_info.seed, training=False)
 

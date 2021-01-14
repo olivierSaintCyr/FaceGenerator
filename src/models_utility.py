@@ -29,7 +29,7 @@ def make_generator(latent_dim):
 
   initializer = tf.random_normal_initializer(0., 0.02)
 
-  x = tf.keras.layers.Conv2DTranspose(128, 4,
+  x = tf.keras.layers.Conv2DTranspose(64, 4,
                                          strides=1,
                                          padding='same',
                                          kernel_initializer=initializer
@@ -92,12 +92,12 @@ def make_discriminator(image_size):
 
   leaky_relu2 = tf.keras.layers.LeakyReLU()(batch_norm2)
 
-  zero_pad3 = tf.keras.layers.ZeroPadding2D()(leaky_relu2)
-
-  last = tf.keras.layers.Conv2D(1, 4, strides=1,
-                                kernel_initializer=initializer)(zero_pad3)
+  # ADD dropout
   
-  return tf.keras.Model(inputs=gen, outputs=last, name='Dis')
+  flat = tf.keras.layers.Flatten()(leaky_relu2)
+  dense = tf.keras.layers.Dense(1)(flat)
+  
+  return tf.keras.Model(inputs=gen, outputs=dense, name='Dis')
 
 def discriminator_loss(real_output, fake_output):
   cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=True)
