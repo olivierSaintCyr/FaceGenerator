@@ -10,5 +10,6 @@ _____IDEAS__________
 - Return to the fake (image) discriminator output model with dropout
 _____QUESTIONS _____
 # loss closer to 0 mean ???
-- Understand doubles faces 
+- Understand doubles faces done
+possible explaination : The discs could output images that 
 - Transferer le resnet pour le GAN au lieu le reecrire de 0
