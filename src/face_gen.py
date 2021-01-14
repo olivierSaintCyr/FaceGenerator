@@ -1,5 +1,5 @@
 import tensorflow as tf
-from models import GanModel
+from GanModel import GanModel
 from train import IMG_SIZE, N_DISCRIMINATORS, LATENT_DIM, BATCH_SIZE
 from train import currentDir, checkpoint_dir
 from PIL import Image

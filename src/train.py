@@ -5,7 +5,7 @@ import os
 import PIL
 import time
 import tensorflow_addons as tfa
-from models import GanModel
+from GanModel import GanModel
 import utility
 from IPython import display
 import pickle
