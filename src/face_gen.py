@@ -13,7 +13,14 @@ tf.compat.v1.Session(config=config)    #
 ########################################
 
 if __name__ == "__main__":
-    model = GanModel(IMG_SIZE, N_DISCRIMINATORS, LATENT_DIM, BATCH_SIZE, checkpoint_dir, True)
+    
+    model = GanModel(IMG_SIZE, 
+                     N_DISCRIMINATORS, 
+                     LATENT_DIM, 
+                     BATCH_SIZE, 
+                     checkpoint_dir, 
+                     True)
+    
     for i in range(10):
         latent_vector = tf.random.normal([1, LATENT_DIM])
         img = (model.generate_image(latent_vector) + 1)*127.5
