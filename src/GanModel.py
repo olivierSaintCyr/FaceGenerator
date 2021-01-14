@@ -138,7 +138,7 @@ class GanModel(object):
 
     def save_discriminators(self, path_to_location, name):
         for i in range(len(self.discriminators)):
-            self.discriminators.save(path_to_location + name + str(i))
+            self.discriminators[i].save(path_to_location + name + str(i))
 
     def save_generator(self, path_to_location, name):
         self.generator.save(path_to_location + name)
