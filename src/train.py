@@ -6,6 +6,7 @@ import PIL
 import time
 import tensorflow_addons as tfa
 from GanModel import GanModel
+from GanModelDropout import GanModelDropoutMap
 import utility
 from IPython import display
 import pickle
@@ -26,7 +27,7 @@ IMG_SIZE = (128,128,3)
 N_DISCRIMINATORS = 5
 LATENT_DIM = 128
 BATCH_SIZE = 16
-EPOCHS = 5
+EPOCHS = 15
 
 if __name__ == "__main__":
 
@@ -50,7 +51,7 @@ if __name__ == "__main__":
         if list(sys.argv)[1] == 'resume':
             resume_training = True
     
-    model = GanModel(IMG_SIZE, 
+    model = GanModelDropoutMap(IMG_SIZE, 
                      N_DISCRIMINATORS, 
                      LATENT_DIM, 
                      BATCH_SIZE, 

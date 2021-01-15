@@ -29,5 +29,18 @@ class LossLog(object):
 
     def graph(self):
         pass
-
-    
+        
+           
+if __name__ == "__main__":
+    log = LossLog()
+    l1 = {'a':[0.4, 0.5], 'b':[0.8, 0.9]}
+    print(log)
+    log.add_loss(l1)
+    print(log) 
+    l2 = {'a':[0.3, 0.4], 'b':[0.3, 0.4]}
+    log.add_loss(l2)
+    print(log)
+    plt.plot(log.losses['a'][0])
+    plt.plot(log.losses['a'][1])
+    plt.savefig('test_loss_log.png')
+    plt.show()

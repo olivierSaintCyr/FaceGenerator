@@ -1,3 +1,4 @@
+
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,7 +29,7 @@ class GanModel(object):
         self.generator = self.make_generator(latent_dim)
         self.discriminators = self.make_discriminators(img_size, n_discriminators)
 
-        self.generator_optimizer = tf.keras.optimizers.Adam(2e-4)
+        self.generator_optimizer = tf.keras.optimizers.Adam(2e-4, beta_1=0.5)
         self.discriminator_optimizers = make_n_optimizers(len(self.discriminators))
         
         self.checkpoint = tf.train.Checkpoint(generator_optimizer=self.generator_optimizer,

@@ -3,7 +3,7 @@ from tensorflow.keras import layers
 import tensorflow_addons as tfa
 
 def make_n_optimizers(n:int):
-  return [tf.keras.optimizers.Adam(2e-4) for i in range(n)]
+  return [tf.keras.optimizers.Adam(2e-4, beta_1=0.5) for i in range(n)]
 
 def make_n_discriminator(image_size : int, n:int):
   return [make_discriminator_model(image_size) for i in range(n)]
@@ -163,7 +163,7 @@ def upsample(filters, size, apply_dropout=True):
                                    gamma_initializer="random_normal"))
                                    
     if apply_dropout:
-        result.add(tf.keras.layers.Dropout(0.5))
+      result.add(tf.keras.layers.Dropout(0.5))
 
     result.add(tf.keras.layers.ReLU())
 
