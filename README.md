@@ -1,2 +1,3 @@
 # Multi-Discriminator-GAN
-This is face generator using a multi discriminator GAN aproch using the 50k images of the CelebA dataset.
+This is face generator using a multi discriminator GAN aproch using 50k images from the CelebA dataset.
+
