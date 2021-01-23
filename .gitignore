@@ -10,3 +10,5 @@
 *.jpeg
 *.pickle
 *.zip
+
+!test_image*.jpeg
