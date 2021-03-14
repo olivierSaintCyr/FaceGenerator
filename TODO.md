@@ -8,6 +8,7 @@ _____IDEAS__________
 - Prioritise the most efficient discriminator in training : need to dev math
 - Return to initial gen model 64 filters last convolution layer ***
 - Return to the fake (image) discriminator output model with dropout
+- Train discriminator before genereator
 _____QUESTIONS _____
 # loss closer to 0 mean ???
 - Understand doubles faces done

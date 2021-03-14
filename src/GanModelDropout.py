@@ -56,7 +56,7 @@ def make_discriminator_map_model(image_size):
     
     x = tf.keras.layers.ZeroPadding2D()(down4)
 
-    x = tf.keras.layers.Dropout(0.4)(x)
+    x = tf.keras.layers.Dropout(0.45)(x)
     
     x = tf.keras.layers.Conv2D(128, 4, strides=1, # previous 64
                               kernel_initializer=initializer,
@@ -72,7 +72,7 @@ def make_discriminator_map_model(image_size):
     x = tf.keras.layers.LeakyReLU()(x)
     x = tf.keras.layers.ZeroPadding2D()(x)
     
-    x = tf.keras.layers.Dropout(0.5)(x)
+    x = tf.keras.layers.Dropout(0.45)(x)
     
     x = tf.keras.layers.Conv2D(256, 4, strides=1, #previous 64
                               kernel_initializer=initializer,
@@ -87,7 +87,7 @@ def make_discriminator_map_model(image_size):
     x = tf.keras.layers.LeakyReLU()(x)
     x = tf.keras.layers.ZeroPadding2D()(x)
 
-    x = tf.keras.layers.Dropout(0.5)(x)
+    x = tf.keras.layers.Dropout(0.45)(x)
     
     logits = tf.keras.layers.Conv2D(1, 4, 
                                     strides=1,

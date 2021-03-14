@@ -27,7 +27,7 @@ IMG_SIZE = (128,128,3)
 N_DISCRIMINATORS = 5
 LATENT_DIM = 128
 BATCH_SIZE = 16
-EPOCHS = 15
+EPOCHS = 30
 
 if __name__ == "__main__":
 
